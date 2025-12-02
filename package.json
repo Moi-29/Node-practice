@@ -1,0 +1,16 @@
+{
+  "name": "node-crash-2025",
+  "version": "1.0.0",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "Moi-29"
+  },
+  "license": "MIT",
+  "author": "Moi",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
