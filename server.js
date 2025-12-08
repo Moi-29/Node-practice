@@ -1,12 +1,1 @@
-import http from "http";
-const PORT = 8000;
-const server = http.createServer((req, res) => {
-  //   res.setHeader("Content-Type", "text/html");
-  //   res.statusCode = 404;
-  res.writeHead(500, { "Content-Type": "application/json" });
-  res.end(JSON.stringify({ message: "server Error" }));
-  res.end("<h1>Hello World</h1>");
-});
-server.listen(8000, () => {
-  console.log(`Server Running on port ${PORT}`);
-});
+
