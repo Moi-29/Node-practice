@@ -1,2 +1,5 @@
-export const people = ["M", "B", "C", "D"];
-export const name = ["Mike", "Bob", "Carl", "Dan"];
+function greeting(greet) {
+  return `Moi, ${greet}`;
+}
+
+export default greeting;

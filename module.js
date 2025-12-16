@@ -1,3 +1,5 @@
-import { people, name } from "./people.js";
+import greet from "./people.js";
 
-console.log("people and name" + people, name);
+const message = greet("how are you?");
+
+console.log(message);
