@@ -1,9 +1,11 @@
 import http from "http";
 
 const server = http.createServer((req, res) => {
-  console.log("request made");
+  res.statusCode = 200;
+  res.setHeader("Content-Type", "text/plain");
+  res.end("Hello World");
 });
 
-server.listen(3000, "localhost", () => {
-  console.log("Server is listening on http://localhost:3000");
+server.listen(3000, () => {
+  console.log("Server is running at port 3000");
 });
