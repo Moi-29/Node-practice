@@ -40,16 +40,46 @@ import url from "url";
 
 // })
 
-const server = http.createServer((req, res) => {
-  if (req.method === "GET" && req.url === "/search") {
-    const queryObject = url.parse(req.url, true).query;
+// const server = http.createServer((req, res) => {
+//   if (req.method === "GET" && req.url === "/search") {
+//     const queryObject = url.parse(req.url, true).query;
 
-    res.writeHead(200, { "content-type": "application/json" });
-    res.end(JSON.stringify({ message: "Received", queryObject }));
-  } else {
+//     res.writeHead(200, { "content-type": "application/json" });
+//     res.end(JSON.stringify({ message: "Received", queryObject }));
+//   } else {
+//     res.writeHead(404, { "content-type": "text/plain" });
+//     res.end("Not Found");
+//   }
+// });
+
+// server.listen(3000, () => {
+//   console.log("Server is running under port 3000");
+// });
+
+const routes = {
+  "./": (req, res) => {
+    res.writeHead(200, { "content-type": "text/plain" });
+    res.end("WELCOME TO THE HOME PAGE");
+  },
+
+  "./about": (req, res) => {
+    res.writeHead(200, { "content-type": "text/plain" });
+    res.end("WELCOME TO THE ABOUT PAGE");
+  },
+
+  "./notfound": (req, res) => {
     res.writeHead(404, { "content-type": "text/plain" });
-    res.end("Not Found");
+    res.end("PAGE NOT FOUND");
+  },
+};
+
+const server = http.createServer((req, res) => {
+  const { pathname } = url.parse(req.url);
+
+  if (routes[pathname]) {
+    routes[pathname](req, res);
   }
+  if (routes["./notfound"]) req, res;
 });
 
 server.listen(3000, () => {
