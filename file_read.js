@@ -1,8 +1,22 @@
-import fs from "fs";
+// import fs from "fs";
 
-fs.readFile("doc.txt", (err, data) => {
-  if (err) {
-    console.log(err);
-  }
-  console.log(data.toString);
+// fs.readFile("doc.txt", (err, data) => {
+//   if (err) {
+//     console.log(err);
+//   }
+//   console.log(data.toString);
+// });
+
+import http from "http";
+
+const server = http.createServer((req, res) => {
+  // Get the URL and HTTP method
+  const { url, method } = req;
+
+  res.writeHead(200, { "Content-Type": "text/plain" });
+  res.end(`You made a ${method} request to ${url}`);
+});
+
+server.listen(3000, () => {
+  console.log("Server running at http://localhost:3000/");
 });
