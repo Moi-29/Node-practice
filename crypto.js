@@ -1,5 +1,5 @@
 import crypto from "crypto";
 
 const hash = crypto.createHash("sha256");
-hash.update("Hello");
+hash.update("Hello, world");
 console.log(hash.digest("hex"));
