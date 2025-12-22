@@ -7,7 +7,7 @@ const writableStream = fs.createWriteStream("doc_out.txt");
 readableStream.pipe(writableStream);
 
 readableStream.on("error", (err) => {
-  console.error("Error reading file:", err);
+  console.error("Error reading files:", err);
 });
 
 writableStream.on("error", (err) => {
