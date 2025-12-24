@@ -10,7 +10,7 @@ rl.on("line", (line) => {
 });
 
 rl.on("close", () => {
-  console.log("Finished reading file line by line...");
+  console.log("Finished reading file line by line");
 });
 
 readableStream.on("Error", (err) => {
