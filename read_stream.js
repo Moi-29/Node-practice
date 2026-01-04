@@ -7,7 +7,7 @@ readableStream.on("data", (chunk) => {
 });
 
 readableStream.on("end", () => {
-  console.log("Finished reading the file...");
+  console.log("Finished ");
 });
 
 readableStream.on("error", (err) => {
