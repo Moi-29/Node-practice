@@ -1,31 +1,17 @@
-import fs from "fs";
+import fs from "fs/promises";
 
 /**
- * Create a readable stream to read the file incrementally.
- * Streaming is memory-efficient for large files because data
- * is processed in chunks instead of loading the entire file at once.
+ * Asynchronously reads the entire file into memory.
+ * Suitable for small to medium-sized files.
  */
-const fileReadStream = fs.createReadStream("doc.txt", {
-  encoding: "utf-8",
-});
+async function readFileAsync() {
+  try {
+    const fileContent = await fs.readFile("doc.txt", "utf-8");
+    console.log(fileContent);
+    console.log("File reading completed successfully.");
+  } catch (error) {
+    console.error("File read error:", error);
+  }
+}
 
-/**
- * Triggered whenever a chunk of data is available.
- */
-fileReadStream.on("data", (dataChunk) => {
-  console.log(dataChunk);
-});
-
-/**
- * Triggered after the entire file has been read.
- */
-fileReadStream.on("end", () => {
-  console.log("");
-});
-
-/**
- * Triggered if an error occurs during the stream operation.
- */
-fileReadStream.on("error", (error) => {
-  console.error("File read error:", error);
-});
+readFileAsync();
