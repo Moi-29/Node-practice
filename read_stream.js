@@ -20,7 +20,7 @@ fileReadStream.on("data", (dataChunk) => {
  * Triggered after the entire file has been read.
  */
 fileReadStream.on("end", () => {
-  console.log("File reading completed successfully.");
+  console.log("");
 });
 
 /**
