@@ -6,7 +6,9 @@ function readFileAsync() {
       console.log(content);
       console.log("File reading completed successfully.");
     })
-
+    .catch(error => {
+      console.error("File read error:", error);
+    });
 }
 
 readFileAsync();
